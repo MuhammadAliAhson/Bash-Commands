@@ -1,30 +1,15 @@
 #include <iostream>
-#include<unistd.h>
-#include<stdlib.h>
-#include<sys/wait.h>
 using namespace std;
-int i = 0;
-int main()
-{
 
-cout<<i<<endl;
-fork();
-i = i+1;
-//cout<<i<<endl;
-if ( fork() || fork() || fork() )
-{
- i = i+1;
- fork();
+int main(int num,char* arg[]){
 
- cout<<i<<endl;
+cout<<"Number is   :"<<num<<endl;
+
+for(int i=0;i<num;i++){
+cout<<arg[i]<<endl;
 }
 
-cout<<"*"<<endl;
+cout<<"Hello Pakistan"<<endl;
 
 return 0;
-
-
-
 }
-
-
