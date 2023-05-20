@@ -32,7 +32,7 @@ set_ip_config() {
 
 # Main function
 main() {
-    echo "21i-0479-Furqan Sharjeel"
+    echo "Muhammad Ali Ahson"
 
     # Create user
     if [ "$1" == "--uc" ]; then
