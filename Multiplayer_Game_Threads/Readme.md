@@ -1,7 +1,7 @@
 
 
+![ezgif com-video-to-gif (2)](https://github.com/MuhammadAliAhson/BASH_Coding/assets/105967134/50c5959e-8b4a-46db-af9d-6c6db516e04a)
 
-https://user-images.githubusercontent.com/105967134/229875931-672dc4f8-2357-4be3-a97b-bb2ad39f6a2d.mp4
 
 
 Exciting news! I've developed a multiplayer game based on threads where up to three players can play simultaneously.
@@ -15,6 +15,11 @@ To make the game even more enjoyable, I have included a function that plays musi
 Overall, this game offers a unique and fun gaming experience that is both challenging and enjoyable. I hope you give it a try and have a blast!
 
 #operatingsystems #ubuntu #experience #threads 
+
+
+
+https://user-images.githubusercontent.com/105967134/229875931-672dc4f8-2357-4be3-a97b-bb2ad39f6a2d.mp4
+
 
 This C++ code is a simple game based on threads that run on a terminal. The game consists of a 2D game board with randomly placed hidden tokens that need to be collected by the players to score points. The game has up to three players, each represented by a different character on the board. The players move using the 'w', 'a', 's', 'd', 'i', 'j', 'k', and 'l' keys.
 
