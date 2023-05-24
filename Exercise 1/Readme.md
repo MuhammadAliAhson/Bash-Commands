@@ -163,4 +163,16 @@ Replace `[OPTIONS]` with the desired option according to the functionalities men
 
 **Note:** The script requires root privileges for certain operations. Make sure to run the script as a superuser or with sudo privileges.
 
+
+Copyright Notice:
+
+This script is created by Muhammad Ali Ahson. It is provided as-is without any warranty. If you find this script useful, please show your appreciation by including an acknowledgment or attribution when using or distributing this code.
+
+Your support and recognition are greatly appreciated!
+
 Author: Muhammad Ali Ahson
+
+
+
+
+
