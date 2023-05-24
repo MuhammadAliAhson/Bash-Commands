@@ -1,4 +1,4 @@
-# Backery Lock
+# Backery Lock (Question 1)
 
 This code implements the Backery Lock algorithm using pthreads in C++. The Backery Lock algorithm provides a mutual exclusion mechanism for threads accessing a critical section.
 
@@ -32,7 +32,50 @@ This code implements the Backery Lock algorithm using pthreads in C++. The Backe
 Note: This code demonstrates the Backery Lock algorithm and its usage in a multithreaded environment.
 
 
+# Bridge Traffic Simulation (Question 2)
 
+This code simulates the traffic on a bridge, where vehicles of different types arrive and depart based on certain conditions. The simulation uses multi-threading and synchronization mechanisms.
+
+## Step-by-Step Explanation
+
+1. The code includes the necessary libraries: `iostream`, `unistd.h`, `pthread.h`, `time.h`, and `semaphore.h`.
+
+2. The code defines the following variables:
+   - `pthread_mutex_t mutex1`: A mutex lock for thread synchronization.
+   - `sem_t csem`: A semaphore to control the number of cars on the bridge.
+   - `sem_t bsem`: A semaphore to control the number of buses on the bridge.
+   - `struct carInfo`: A structure to hold information about a vehicle, including its direction and vehicle type.
+   - `Queue`: A template class representing a queue data structure.
+
+3. The code implements a queue data structure using a linked list for managing vehicles and thread IDs.
+
+4. The code defines global variables to track the number of buses, cars, buses with cars, and their counts in different directions.
+
+5. The `ExitTheBridge` function is called when a vehicle exits the bridge. It dequeues the next vehicle from the queue, updates the counts, and releases the locks if required.
+
+6. The `ArriveAtBridge` function is called when a vehicle arrives at the bridge. It checks the conditions based on the direction and vehicle type, updates the counts, and prints the information about the vehicle on the bridge.
+
+7. The `vehicle` thread function is responsible for simulating the behavior of each vehicle. It receives the direction and vehicle type as arguments, enqueues the thread ID, waits for a random amount of time, calls `ArriveAtBridge`, waits again, and finally exits the thread.
+
+8. In the `main` function, the necessary mutex and semaphore variables are initialized.
+
+9. The program prompts the user to enter the duration (in minutes) for which the simulation should run.
+
+10. A loop is initiated to simulate the traffic within the specified duration. Random vehicle types and directions are generated, and a new vehicle thread is created for each iteration. The simulation runs for the specified duration.
+
+11. After the simulation ends, the program waits for all vehicle threads to complete.
+
+12. Finally, the program exits with a status of 0.
+
+## Usage
+
+1. Compile the code using a C++ compiler.
+2. Run the executable.
+3. Enter the duration (in minutes) for which you want to run the simulation.
+4. Observe the simulation output, which includes information about vehicles arriving and exiting the bridge.
+5. The program will terminate automatically after the specified duration.
+
+Note: This code is a simplified simulation and may not accurately represent real-world traffic scenarios. It serves as an example to demonstrate the usage of threads and synchronization mechanisms in a traffic simulation context.
 
 
 
