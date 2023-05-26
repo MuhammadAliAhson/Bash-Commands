@@ -421,3 +421,87 @@ int main() {
 ## Conclusion
 
 This program efficiently calculates the LCM and HCF of two numbers using separate child and parent processes. It demonstrates the usage of `fork()` to create child processes and the wait function to synchronize their execution. The program can be useful in various mathematical calculations and number theory applications.
+
+# ----------------------------------------------------
+
+# Number Operations (Task-4(b).cpp)
+
+This C++ program performs various operations on input numbers. The program uses multiple child processes created using the `fork()` function to execute different calculations concurrently.
+
+```cpp
+#include <iostream>
+#include <unistd.h>
+#include <bits/stdc++.h>
+#include <sys/wait.h>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int a1, b, c, max_num;
+    int status;
+
+    pid_t t1 = fork();
+    if (t1 == 0) {
+        pid_t t2 = fork();
+
+        if (t2 == 0) {
+            pid_t t3 = fork();
+
+            if (t3 == 0) {
+                cout << "Please enter the numbers: " << endl;
+                cin >> a1 >> b >> c;
+                max_num = max({a1, b, c});
+                exit(max_num);
+            } else if (t3 > 0) {
+                wait(&status);
+                int a = WEXITSTATUS(status);
+                a = a * a;
+                exit(a);
+            }
+        } else if (t2 > 0) {
+            wait(&status);
+            int a = WEXITSTATUS(status);
+            if (a % 2 == 0) {
+                cout << "It's Even" << endl;
+                exit(a);
+            }
+        }
+
+    } else if (t1 > 0) {
+        wait(&status);
+        int a = WEXITSTATUS(status);
+        cout << "Multiples are: ";
+        for (int i = a; i < 50; i = i * 2) {
+            cout << " " << i << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+```
+
+## How it works
+
+1. The program starts by declaring the required variables, including `a1`, `b`, `c` for input numbers, `max_num` for storing the maximum number, and `status` for storing the child process status.
+2. The program forks the first child process using `fork()`.
+3. In the first child process (identified by `t1 == 0`), it forks a second child process.
+4. In the second child process (identified by `t2 == 0`), it forks a third child process.
+5. In the third child process (identified by `t3 == 0`), it prompts the user to enter three numbers (`a1`, `b`, `c`), calculates the maximum number among them using the `max()` function, and exits with the maximum number as the status.
+6. In the second child process (identified by `t2 == 0`), it waits for the third child process to finish using `wait(&status)`. It then calculates the square of the value received from the third child process (`WEXITSTATUS(status)`), exits with the squared value as the status if it is even, or continues to the next step if it is odd.
+7. In the first child process (identified by `t1 == 0`), it waits for the second child process to finish using `wait(&status)`. It receives the value from the second child process (`WEXITSTATUS(status)`) and checks if it is even. If it is even, it prints "It's Even" and exits with the received value as the status. If it is odd, it continues to the next step.
+8. In the parent process, it waits for the first child process to finish using `wait(&status)`. It receives the value from the first child process (`WEXITSTATUS(status)`) and prints the multiples of that value up to 50, doubling the value at each iteration.
+9.
+
+ The program terminates.
+
+## Usage
+
+1. Save the code in a file with a `.cpp` extension, such as `number_operations.cpp`.
+2. Compile the code using a C++ compiler: `g++ number_operations.cpp -o number_operations`.
+3. Run the program: `./number_operations`.
+
+## Conclusion
+
+This program showcases the usage of multiple child processes created using `fork()` to perform calculations concurrently. It demonstrates the ability to communicate values between parent and child processes using exit status. The program can be used to find the maximum number, check if a number is even, and generate multiples of a number.
