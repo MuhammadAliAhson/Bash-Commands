@@ -359,4 +359,65 @@ To run the script:
 This script allows users to calculate grades based on input and perform basic arithmetic operations. It can be used for quick grade calculations or simple arithmetic calculations in a command-line environment.
 
 
-# ------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------
+
+# LCM and HCF Calculation  (Task4(a).cpp)
+
+This C++ program calculates the Least Common Multiple (LCM) and Highest Common Factor (HCF) of two given numbers. The program utilizes the fork() function to create a child process that calculates the LCM, while the parent process calculates the HCF.
+
+```cpp
+#include <iostream>
+#include <unistd.h>
+#include <bits/stdc++.h>
+#include <sys/wait.h>
+using namespace std;
+
+int main() {
+    int a, b, max_num, hcf;
+    int status;
+    a = 42;
+    b = 63;
+
+    pid_t t1 = fork();
+    if (t1 == 0) {
+        max_num = max(a, b);
+
+        while (1) {
+            if (max_num % a == 0 && max_num % b == 0) {
+                cout << "The LCM of " << a << " and " << b << " is " << max_num << endl;
+                break;
+            }
+            ++max_num;
+        }
+    } else {
+        wait(&status);
+        for (int i = 1; i <= a || i <= b; i++) {
+            if (a % i == 0 && b % i == 0)
+                hcf = i;
+        }
+
+        cout << "HCF of " << a << " and " << b << " is " << hcf << endl;
+    }
+
+    return 0;
+}
+```
+
+## How it works
+
+1. The program starts by declaring the required variables, including `a` and `b` for the input numbers, `max_num` for calculating the LCM, `hcf` for storing the HCF, and `status` for storing the child process status.
+2. The program forks a child process using `fork()`.
+3. In the child process (identified by `t1 == 0`), the LCM is calculated by finding the minimum common multiple that is divisible by both `a` and `b`. The result is displayed.
+4. In the parent process, the HCF is calculated using a loop. The loop iterates from 1 to the maximum of `a` and `b`, checking if each number is a common factor. The largest common factor is stored in `hcf` and displayed.
+5. The parent process waits for the child process to finish using `wait(&status)`.
+6. The program terminates.
+
+## Usage
+
+1. Save the code in a file with a `.cpp` extension, such as `lcm_hcf.cpp`.
+2. Compile the code using a C++ compiler: `g++ lcm_hcf.cpp -o lcm_hcf`.
+3. Run the program: `./lcm_hcf`.
+
+## Conclusion
+
+This program efficiently calculates the LCM and HCF of two numbers using separate child and parent processes. It demonstrates the usage of `fork()` to create child processes and the wait function to synchronize their execution. The program can be useful in various mathematical calculations and number theory applications.
