@@ -273,3 +273,90 @@ Example output:
 ## Conclusion
 
 This program demonstrates how the `fork()` function can be used to create multiple child processes and how a variable can be incremented in each process. Understanding process forking and how it affects variables is essential in understanding parallel execution and the behavior of concurrent programs.
+
+# 0-----------------------------------------------------------------------------------------
+
+# Simple Grade Calculation and Arithmetic Operations (Task3.sh)
+
+This script provides two functionalities: calculating a grade based on user input and performing arithmetic operations. The script is written in Bash.
+
+## Grade Calculation
+
+The first part of the script calculates a grade based on the user's input. The user is prompted to enter a number, and the script determines the corresponding grade. The grades and their respective ranges are defined in the `case` statement.
+
+```bash
+read choice
+
+case $choice in
+  0[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9])
+    echo "Grade is D"
+    ;;
+  5[1-9])
+    echo "Grade is C"
+    ;;
+  6[0-9])
+    echo "Grade is B"
+    ;;
+  7[0-9])
+    echo "Grade is B+"
+    ;;
+  8[0-9]*)
+    echo "Grade is A"
+    ;;
+  *)
+    echo "Wrong Input"
+    ;;
+esac
+```
+
+## Arithmetic Operations
+
+The second part of the script performs arithmetic operations on two user-inputted values. The user is prompted to enter two numbers and then select an operation by entering a number from 1 to 4. The script uses a `case` statement to execute the selected operation and display the result.
+
+```bash
+read a1
+read a2
+
+echo "Enter 1 for Addition"
+echo "Enter 2 for Subtraction"
+echo "Enter 3 for Multiplication"
+echo "Enter 4 for Division"
+
+read choice
+
+case $choice in
+  1)
+    a3=$(($a1+$a2))
+    echo "Value is $a3"
+    ;;
+  2)
+    a3=$(($a1-$a2))
+    echo "Value is $a3"
+    ;;
+  3)
+    a3=$(($a1*$a2))
+    echo "Value is $a3"
+    ;;
+  4)
+    a3=$(($a1/$a2))
+    echo "Value is $a3"
+    ;;
+esac
+```
+
+## Usage
+
+To run the script:
+
+1. Save the script in a file with a `.sh` extension (e.g., `grade_arithmetic.sh`).
+2. Open a terminal or command prompt.
+3. Navigate to the directory where the script file is located.
+4. Make the script file executable using the command: `chmod +x grade_arithmetic.sh`
+5. Execute the script using the command: `./grade_arithmetic.sh`
+
+## Conclusion
+
+This script allows users to calculate grades based on input and perform basic arithmetic operations. It can be used for quick grade calculations or simple arithmetic calculations in a command-line environment.
+
+
+# ------------------------------------------------------------------------------------
