@@ -1,3 +1,6 @@
+![WhatsApp Image 2023-02-15 at 2 00 15 PM](https://github.com/MuhammadAliAhson/BASH_Coding/assets/105967134/ec83f210-ad6d-45fb-88aa-36193cc0cf42)
+
+
 # Process Forking Example (Process1.cpp)
 
 This code demonstrates the concept of process forking using the `fork()` function in C++. It creates a child process from the parent process and displays the process IDs for both the parent and child processes. The child process exits with a predefined exit status, which is then captured by the parent process using the `wait()` function.
