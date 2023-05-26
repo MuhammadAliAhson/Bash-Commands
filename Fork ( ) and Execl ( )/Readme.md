@@ -504,4 +504,109 @@ int main() {
 
 ## Conclusion
 
-This program showcases the usage of multiple child processes created using `fork()` to perform calculations concurrently. It demonstrates the ability to communicate values between parent and child processes using exit status. The program can be used to find the maximum number, check if a number is even, and generate multiples of a number.
+This program showcases the usage of multiple child processes created using `fork()` to perform calculations concurrently. It demonstr# External Program Execution
+
+This C++ program demonstrates the execution of an external program using the `execl()` function. It forks a child process and replaces its image with the specified external program, passing command-line arguments. 
+
+```cpp
+#include <iostream>
+#include <unistd.h>
+#include <sys/wait.h>
+using namespace std;
+
+int main() {
+    int status = 0;
+    pid_t t1 = fork();
+    if (t1 == 0) {
+        execl("/home/lab/Desktop/task2", "task2", "my name", "Ali", NULL);
+        //execlp("./task2", "my name", "Ali", NULL);
+        cout << "After execl" << endl;
+        exit(status);
+    } else {
+        wait(&t1);
+    }
+    return 0;
+}
+```
+
+## How it works
+
+1. The program starts by declaring the `status` variable to store the child process status.
+2. The program forks a child process using `fork()`.
+3. In the child process (identified by `t1 == 0`), it uses the `execl()` function to replace its image with the specified external program.
+   - The first argument (`/home/lab/Desktop/task2`) is the path to the external program executable.
+   - The second argument (`task2`) is the program name or a custom name.
+   - The third and subsequent arguments (`my name`, `Ali`) are the command-line arguments to be passed to the external program.
+   - The last argument (`NULL`) marks the end of the argument list.
+   - Note: You can also use `execlp()` instead of `execl()` to search for the executable in the directories listed in the `PATH` environment variable.
+4. If the `execl()` function is successful, the subsequent code after `execl()` is not executed. Therefore, the "After execl" message is not printed.
+5. After executing the external program, the child process exits with the `status` value.
+6. In the parent process, it waits for the child process to finish using `wait(&t1)`, allowing the parent to synchronize with the child process.
+7. The parent process continues its execution, and the program terminates.
+
+## Usage
+
+1. Save the code in a file with a `.cpp` extension, such as `external_program_execution.cpp`.
+2. Modify the path (`/home/lab/Desktop/task2`) in the code to the actual path of the external program executable.
+3. Compile the code using a C++ compiler: `g++ external_program_execution.cpp -o external_program_execution`.
+4. Ensure that the external program (`task2`) exists at the specified path.
+5. Run the program: `./external_program_execution`.
+
+## Conclusion
+
+This program demonstrates how to execute an external program from a C++ program using the `execl()` function. By forking a child process and replacing its image with the desired program, it allows seamless integration of external functionalities. This approach enables communication and data exchange between the parent and child processes.ates the ability to communicate values between parent and child processes using exit status. The program can be used to find the maximum number, check if a number is even, and generate multiples of a number.
+
+# ----------------------------------------------------
+
+
+# External Program Execution  (Task-5(a).cpp)
+
+This C++ program demonstrates the execution of an external program using the `execl()` function. It forks a child process and replaces its image with the specified external program, passing command-line arguments. 
+
+```cpp
+#include <iostream>
+#include <unistd.h>
+#include <sys/wait.h>
+using namespace std;
+
+int main() {
+    int status = 0;
+    pid_t t1 = fork();
+    if (t1 == 0) {
+        execl("/home/lab/Desktop/task2", "task2", "my name", "Ali", NULL);
+        //execlp("./task2", "my name", "Ali", NULL);
+        cout << "After execl" << endl;
+        exit(status);
+    } else {
+        wait(&t1);
+    }
+    return 0;
+}
+```
+
+## How it works
+
+1. The program starts by declaring the `status` variable to store the child process status.
+2. The program forks a child process using `fork()`.
+3. In the child process (identified by `t1 == 0`), it uses the `execl()` function to replace its image with the specified external program.
+   - The first argument (`/home/lab/Desktop/task2`) is the path to the external program executable.
+   - The second argument (`task2`) is the program name or a custom name.
+   - The third and subsequent arguments (`my name`, `Ali`) are the command-line arguments to be passed to the external program.
+   - The last argument (`NULL`) marks the end of the argument list.
+   - Note: You can also use `execlp()` instead of `execl()` to search for the executable in the directories listed in the `PATH` environment variable.
+4. If the `execl()` function is successful, the subsequent code after `execl()` is not executed. Therefore, the "After execl" message is not printed.
+5. After executing the external program, the child process exits with the `status` value.
+6. In the parent process, it waits for the child process to finish using `wait(&t1)`, allowing the parent to synchronize with the child process.
+7. The parent process continues its execution, and the program terminates.
+
+## Usage
+
+1. Save the code in a file with a `.cpp` extension, such as `external_program_execution.cpp`.
+2. Modify the path (`/home/lab/Desktop/task2`) in the code to the actual path of the external program executable.
+3. Compile the code using a C++ compiler: `g++ external_program_execution.cpp -o external_program_execution`.
+4. Ensure that the external program (`task2`) exists at the specified path.
+5. Run the program: `./external_program_execution`.
+
+## Conclusion
+
+This program demonstrates how to execute an external program from a C++ program using the `execl()` function. By forking a child process and replacing its image with the desired program, it allows seamless integration of external functionalities. This approach enables communication and data exchange between the parent and child processes.
