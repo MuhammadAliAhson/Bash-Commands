@@ -94,7 +94,7 @@ Note: This code snippet assumes a basic implementation and does not include exte
 ---
 # -================================================
 
-# Student Grade Point Average Calculation
+# Student Grade Point Average Calculation (Thread_Task(Abdullah).cpp)
 
 This program calculates the Grade Point Average (GPA) for a student based on the marks obtained in different subjects. The program takes input from the user, calculates the GPA, and writes the results to a file.
 
