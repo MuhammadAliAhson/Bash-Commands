@@ -610,3 +610,52 @@ int main() {
 ## Conclusion
 
 This program demonstrates how to execute an external program from a C++ program using the `execl()` function. By forking a child process and replacing its image with the desired program, it allows seamless integration of external functionalities. This approach enables communication and data exchange between the parent and child processes.
+
+# ---------------------------------------
+
+
+# Command Line Arguments  (Task-5(b).cpp)
+
+This C++ program demonstrates the usage of command-line arguments. It displays the number of arguments passed and prints each argument individually.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(int num, char* arg[]) {
+    cout << "Number of arguments: " << num << endl;
+
+    for (int i = 0; i < num; i++) {
+        cout << "Argument " << i << ": " << arg[i] << endl;
+    }
+
+    cout << "Hello Pakistan" << endl;
+
+    return 0;
+}
+```
+
+## How it works
+
+1. The program defines the `main` function with two parameters: `int num` and `char* arg[]`.
+   - `num` represents the number of command-line arguments.
+   - `arg` is an array of C-style strings (`char*`) that contains the command-line arguments.
+2. The program outputs the number of arguments passed using `cout`.
+3. It uses a `for` loop to iterate over the `arg` array and print each argument individually.
+   - The loop starts from `i = 0` and continues until `i < num`.
+   - Inside the loop, it prints the argument number (`i`) and the corresponding argument value (`arg[i]`).
+4. After printing all the arguments, the program displays the "Hello Pakistan" message.
+5. Finally, the program returns 0 to indicate successful execution.
+
+## Usage
+
+1. Save the code in a file with a `.cpp` extension, such as `command_line_arguments.cpp`.
+2. Compile the code using a C++ compiler: `g++ command_line_arguments.cpp -o command_line_arguments`.
+3. Run the program with command-line arguments: `./command_line_arguments arg1 arg2 arg3 ...`.
+   - Replace `arg1`, `arg2`, `arg3`, and so on with the desired command-line arguments.
+   - You can pass any number of arguments.
+   - The program will display the number of arguments and print each argument on a separate line.
+
+## Conclusion
+
+This program showcases the usage of command-line arguments in C++. By accessing the `num` and `arg` parameters in the `main` function, the program can handle and process the arguments passed during execution. This allows for dynamic input and customization of program behavior based on user-provided values.
