@@ -50,7 +50,48 @@ Note: This code snippet includes a basic implementation of the bank account mana
 
 # =============================================================
 
+# Student Grade Point Average Calculation  (Task9.cpp)
 
+This program calculates the Grade Point Average (GPA) for a student based on the marks obtained in different subjects. The program takes input from the user, calculates the GPA, and writes the results to a file.
+
+## Prerequisites
+
+- C++ compiler
+
+## Installation
+
+1. Clone the repository or download the source code files.
+2. Open a terminal and navigate to the directory where the code is located.
+
+## Usage
+
+1. Compile the code using a C++ compiler. For example, using g++:
+   ```
+   g++ main.cpp -o student_gpa_calculator -lpthread
+   ```
+   The `-lpthread` flag is required to link the pthread library.
+2. Run the executable:
+   ```
+   ./student_gpa_calculator
+   ```
+3. The program will prompt you to enter the student's name.
+4. Enter the marks obtained by the student in the following subjects:
+   - Sports Analysis
+   - Statistics
+   - Entrepreneurship
+   - Crowd Funding
+   - Social Marketing
+5. The program will create a thread (`Take_Input`) to collect the input marks from the user.
+6. The program will display the entered marks.
+7. The program will create another thread (`calculate_points`) to calculate the Grade Points based on the entered marks.
+8. The program will display the calculated Grade Points.
+9. The program will calculate the GPA based on the Grade Points and write the results to a file named "21I-2477_grade-points.txt".
+10. The file will contain the student's name, the Grade Points obtained in each subject, and the calculated GPA.
+11. The program will terminate.
+
+Note: This code snippet assumes a basic implementation and does not include extensive error handling or input validation. Additional enhancements can be made as per requirements.
+
+---
 
 
 © Muhammad Ali Ahson
